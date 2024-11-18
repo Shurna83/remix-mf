@@ -1,3 +1,4 @@
+import { federation } from "@module-federation/vite";
 import { vitePlugin as remix } from "@remix-run/dev";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
@@ -26,5 +27,25 @@ export default defineConfig({
       },
     }),
     tsconfigPaths(),
+    federation({
+      name: "remixHost",
+      remotes: {
+        mfe: "mfe@http://localhost:3000/mf-manifest.json",
+      },
+      filename: "mfe-[hash].js",
+      manifest: true,
+      shared: {
+        react: { singleton: true },
+        "react/": { singleton: true },
+        "react-dom": { singleton: true },
+        "react-dom/": { singleton: true },
+      },
+    }),
   ],
+  build: {
+    target: "chrome89",
+    rollupOptions: {
+      external: "mfe/awesomeText",
+    },
+  },
 });
