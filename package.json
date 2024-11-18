@@ -2,15 +2,16 @@
   "name": "remix-mf",
   "version": "1.0.0",
   "description": "Integrate a federated module inside a Remix route",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm run build --workspaces",
+    "host": "npm run dev -w remix-host",
+    "remote": "npm run dev -w remote"
   },
   "keywords": [],
-  "author": "",
+  "author": "github@gabrielebuffolino.aleeas.com",
   "license": "ISC",
   "workspaces": [
-    "packages/remix-host",
-    "packages/remote"
+    "packages/remote",
+    "packages/remix-host"
   ]
 }
