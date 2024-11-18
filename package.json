@@ -1,0 +1,16 @@
+{
+  "name": "remix-mf",
+  "version": "1.0.0",
+  "description": "Integrate a federated module inside a Remix route",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "workspaces": [
+    "packages/remix-host",
+    "packages/remote"
+  ]
+}
